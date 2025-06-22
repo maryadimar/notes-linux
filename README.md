@@ -1,183 +1,92 @@
-\- Perintah Dasar Linux:
-
-\* perintah untuk melihat kita berada dipath mana ?
-
-\-- \`pwd\`
-
-\--- outputnya : '/Users/userx/Documents/'
-
-  
-
-\* perintah untuk menampilkan isi folder ?
-
-\-- \`ls\`
-
-\--- outputnya : bakal keluar file atau folder didalamnya
-
-  
-
-\* perintah untuk menampilkan semua file termasuk yang disembunyikan ?
-
-\-- \`ls -a\`
-
-\--- outputnya : bakal keluar file atau folder serta yang disembunyikan
-
-\---- biasanya folder/file yang dihidden itu diawali dengan tanda titik didepan, misal .git
-
-\---- ketika ketik perintah ls folder .git tidak akan tampil tapi begitu tambahkan flag -a .git akan tampil
-
-  
-
-\* perintah untuk masuk dalam folder ?
-
-\-- \`cd\` diikuti dengan nama folder
-
-\--- contoh : cd Documents
-
-  
-
-\* perintah untuk membuat file ?
-
-\-- \`touch\` diikuti dengan nama file
-
-\--- contoh : touch contoh\_nama\_file.txt
-
-  
-
-\* perintah untuk menulis file ?
-
-\-- \`nano\` diikuti dengan nama file
-
-\--- contoh : nano contoh\_nama\_file.txt
-
-\---- silahkan tulis sesuatu layaknya anda menulis di notepad
-
-  
-
-\* perintah untuk mencari kata ?
-
-\-- \`grep\` diikuti dengan kata yang ingin dicari
-
-\--- contoh : grep apel buah.txt
-
-\---- disini saya contohkan mencari kata dalam sebuah file
-
-  
-
-\* perintah untuk mencari kata dengan flag -i ?
-
-\-- \`grep -i\` diikuti dengan kata yang ingin dicari
-
-\--- contoh : grep -i Apel buah.txt
-
-\---- dengan adanya flag -i pencarian tidak memperdulikan huruf besar/kecil
-
-  
-
-\* perintah untuk mencari kata dengan flag -n ?
-
-\-- \`grep -n\` diikuti dengan kata yang ingin dicari
-
-\--- contoh : grep -n Apel buah.txt
-
-\---- untuk mengetahui kata yang dicari ada dibaris ke berapa
-
-\----- btw kalai bisa kombinasi flag -n -i juga >> grep -n -i apel buah.txt
-
-  
-
-\* perintah untuk mencari kata dengan flag -r ?
-
-\-- \`grep -r\` diikuti dengan kata yang ingin dicari
-
-\--- contoh : grep -r "apel" .
-
-\---- -r ➜ recursive (cari di semua folder dan subfolder)
-
-\---- ➜ "apel" kata yang dicari
-
-\---- ➜ . mulai dari folder saat ini
-
-\---- akan menampilkan file yang mengandung kata apel
-
-  
-
-\* perintah menggunakan pipeline "|" sebagai penghubung ?
-
-\-- \`|\` kita manfaatkan dengan melakukan pencarian
-
-\--- contoh : ls -a | grep txt
-
-\---- maka outputnya tampilkan semua folder/file baik yang hidden atau tidak dilanjutkan dengan mencari file/folder yang mengandung kata txt
-
-  
-
-\* perintah menggunakan find ?
-
-\-- \`find \[lokasi\_awal\] \[kriteria\] \[aksi\]\` kita manfaatkan dengan melakukan pencarian
-
-\--- contoh : find . -name buah.txt
-
-\---- . ➜ cari mulai dari folder saat ini
-
-\---- -name ➜ kriteria nama file
-
-\---- "buah.txt" ➜ nama file yang dicari
-
-\---- bisa juga dengan find /home/users/Documents -name "file\_yang\_dicari.txt"
-
-\---- ganti -name dengan -iname agar mengabaikan huruf besar/kecil
-
-\---- find /home/kamu -type d -name "project" , hanya mencari type folder dengan nama folder project
-
-\---- find /home/kamu -type f -name "\*.txt\*" , hanaya mencari file berformat .txt
-
-\---- find . -type f -mtime -1 , cari type file yang diubah 1 hari terakhir
-
-\---- find . -type f -mtime +5 , cari type file yang dibuat 5 hari yang lalu
-
-\---- find . -type f -size +10M , cari type file yang berukuran > 10MB
-
-\---- find . -type f -perm 0777, cari file dengan permission 0777
-
-\---- find . -type f -name "\*.log" -size +5M , cari file semua yang berformat .log yang ukurannya > 5M
-
-\---- find . -type f -name "\*.php" -exec chmod 644 {} \\; , cari semua file berformat .php dilanjutkan dengan memberikan akses permission 644, tanda {} mewakili file yang ditemukan, \\; menutuo perintah
-
-\---- find . -type f -name "\*.sh" -exec mv {} backup\_scripts \\; , cari semua file berformat .sh kemudian pindahkan ke folder backup\_scripts,
-
-notes: untuk pembuatan folder backup\_scripts nya menggunakan -p artinya membuat parent folder beserta parent folder nya sehingga ketika dilakukan pembuatan nama folder yang sama Tidak error kalau sudah ada
-
-  
-
-\* perintah untuk membuat folder ?
-
-\-- \`mkdir\` diikuti dengan nama folder
-
-\--- mkdir : touch contoh\_nama\_folder
-
-  
-
-\* perintah untuk menghapus file ?
-
-\-- \`rm\` diikuti dengan nama file
-
-\--- contoh : rm contoh\_nama\_file.txt
-
-  
-
-\* perintah untuk menghapus folder ?
-
-\-- \`rmdir\` diikuti dengan nama folder
-
-\--- contoh : rmdir contoh\_nama\_folder
-
-\---- Hapus folder (harus kosong)
-
-  
-
-\* perintah who ?
-
-\-- \`who\` untuk mengetahui user yang login saat ini
-
-ur rich text content here. You can paste directly from Word or other rich text sources.dfd
+# Perintah Dasar Linux
+
+Berikut adalah daftar perintah dasar Linux beserta penjelasan dan contoh penggunaannya:
+
+## 1. Mengetahui Posisi Path Saat Ini
+- **Perintah**: `pwd`
+- **Output**: `/Users/userx/Documents/`
+
+## 2. Menampilkan Isi Folder
+- **Perintah**: `ls`
+- **Output**: Menampilkan file atau folder di dalam direktori saat ini.
+
+## 3. Menampilkan Semua File (Termasuk yang Tersembunyi)
+- **Perintah**: `ls -a`
+- **Output**: Menampilkan semua file/folder, termasuk yang tersembunyi (diawali dengan titik, misal `.git`).
+- **Catatan**: File/folder tersembunyi tidak tampil dengan `ls` biasa, tetapi muncul dengan flag `-a`.
+
+## 4. Masuk ke Dalam Folder
+- **Perintah**: `cd <nama_folder>`
+- **Contoh**: `cd Documents`
+
+## 5. Membuat File
+- **Perintah**: `touch <nama_file>`
+- **Contoh**: `touch contoh_nama_file.txt`
+
+## 6. Menulis atau Mengedit File
+- **Perintah**: `nano <nama_file>`
+- **Contoh**: `nano contoh_nama_file.txt`
+- **Catatan**: Memungkinkan penulisan seperti di notepad. Simpan dengan `Ctrl+O`, keluar dengan `Ctrl+X`.
+
+## 7. Mencari Kata dalam File
+- **Perintah**: `grep <kata> <nama_file>`
+- **Contoh**: `grep apel buah.txt`
+- **Penjelasan**: Mencari kata `apel` dalam file `buah.txt`.
+
+### Flag untuk `grep`:
+- **`-i`**: Mengabaikan huruf besar/kecil.
+  - **Contoh**: `grep -i Apel buah.txt`
+- **`-n`**: Menampilkan nomor baris tempat kata ditemukan.
+  - **Contoh**: `grep -n Apel buah.txt`
+  - **Kombinasi**: `grep -n -i apel buah.txt`
+- **`-r`**: Pencarian rekursif di semua folder dan subfolder.
+  - **Contoh**: `grep -r "apel" .`
+  - **Penjelasan**: Mencari kata `apel` di semua file mulai dari direktori saat ini (`.`).
+
+## 8. Menggunakan Pipeline (`|`)
+- **Perintah**: `<perintah1> | <perintah2>`
+- **Contoh**: `ls -a | grep txt`
+- **Penjelasan**: Menampilkan semua file/folder (termasuk tersembunyi) lalu memfilter yang mengandung kata `txt`.
+
+## 9. Mencari File dengan `find`
+- **Format**: `find <lokasi_awal> <kriteria> <aksi>`
+- **Contoh**:
+  - `find . -name buah.txt`: Mencari file bernama `buah.txt` di direktori saat ini.
+  - `find /home/users/Documents -name "file_yang_dicari.txt"`: Mencari file di lokasi spesifik.
+  - `find . -iname "file.txt"`: Mengabaikan huruf besar/kecil.
+  - `find /home/kamu -type d -name "project"`: Mencari folder bernama `project`.
+  - `find /home/kamu -type f -name "*.txt"`: Mencari semua file berekstensi `.txt`.
+  - `find . -type f -mtime -1`: Mencari file yang diubah dalam 1 hari terakhir.
+  - `find . -type f -mtime +5`: Mencari file yang dibuat lebih dari 5 hari lalu.
+  - `find . -type f -size +10M`: Mencari file berukuran lebih dari 10MB.
+  - `find . -type f -perm 0777`: Mencari file dengan izin akses `0777`.
+  - `find . -type f -name "*.log" -size +5M`: Mencari file `.log` berukuran lebih dari 5MB.
+  - `find . -type f -name "*.php" -exec chmod 644 {} \;`: Mengubah izin file `.php` menjadi `644`.
+  - `find . -type f -name "*.sh" -exec mv {} backup_scripts \;`: Memindahkan file `.sh` ke folder `backup_scripts`.
+
+- **Catatan**: 
+  - Gunakan `-p` saat membuat folder (`mkdir -p backup_scripts`) untuk menghindari error jika folder sudah ada.
+  - `{}` mewakili file yang ditemukan, dan `\;` menutup perintah `-exec`.
+
+## 10. Membuat Folder
+- **Perintah**: `mkdir <nama_folder>`
+- **Contoh**: `mkdir contoh_nama_folder`
+
+## 11. Menghapus File
+- **Perintah**: `rm <nama_file>`
+- **Contoh**: `rm contoh_nama_file.txt`
+
+## 12. Menghapus Folder
+- **Perintah**: `rmdir <nama_folder>`
+- **Contoh**: `rmdir contoh_nama_folder`
+- **Catatan**: Folder harus kosong untuk dapat dihapus.
+
+## 13. Mengetahui Pengguna yang Sedang Login
+- **Perintah**: `who`
+- **Penjelasan**: Menampilkan daftar pengguna yang sedang login.
+
+---
+
+**Catatan Tambahan**:
+- Gunakan perintah dengan hati-hati, terutama `rm` dan `rmdir`, karena data yang dihapus tidak dapat dikembalikan.
+- Untuk informasi lebih lanjut tentang perintah, gunakan `man <perintah>` (contoh: `man grep`).
